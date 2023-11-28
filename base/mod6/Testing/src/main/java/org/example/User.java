@@ -17,9 +17,10 @@ public class User {
     }
 
     public void setLogin(String login) {
-        if (login != null && login.length() >= 5) {
-            this.login = login;
+        if (login == null || login.length() < 5) {
+            return;
         }
+        this.login = login;
     }
 
     public String getEmail() {
@@ -27,8 +28,9 @@ public class User {
     }
 
     public void setEmail(String email) {
-        if (email != null && email.contains("@") && email.contains(".")) {
-            this.email = email;
+        if (email == null || !email.contains("@") || !email.contains(".")) {
+            return;
         }
+        this.email = email;
     }
 }
